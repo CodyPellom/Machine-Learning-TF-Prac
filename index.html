@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANN</title>
+    <link rel="stylesheet" href="./main.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+</head>
+
+<body>
+    <div id="textArea"></div>
+    <div class="file-upload">
+
+
+        <input class="file-upload__input" type="file" name="myFile" id="myFile">
+        <button type="button" class="file-upload__button">Choose Image</button>
+        <span class="file-upload__label"></span>
+    </div>
+    <script>
+
+        //TODO: FIgure out how to use the image data in updating what mobilenet is using. 
+        Array.prototype.forEach.call(document.querySelectorAll('.file-upload__button'), function (button) {
+            const hiddenInput = button.parentElement.querySelector('.file-upload__input');
+            const label = button.parentElement.querySelector('.file-upload__label');
+            const defaultLabelText = 'No image selected';
+            label.textContent = defaultLabelText;
+
+            button.addEventListener('click', function () {
+                hiddenInput.click();
+            })
+
+            hiddenInput.addEventListener('change', function () {
+                const fileNameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+                    return file.name;
+                    file.src = URL.createObjectURL(event.target.files[0]);
+
+                });
+                label.textContent = fileNameList.join(', ') || defaultLabelText;
+                label.title = label.textContent; // console.log(hiddenInput.files);
+            });
+
+
+        });
+    </script>
+
+</body>
+<script src="./main.js"></script>
+
+</html>

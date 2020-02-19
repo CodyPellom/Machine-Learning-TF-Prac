@@ -1,0 +1,30 @@
+.file-upload {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;;
+}
+.file-upload__input {
+    display: none;
+}
+.file-upload__button {
+    background: #009879;
+    border: 2px solid #009800;
+    border-radius: 4px;
+    padding: 0.5vw;
+    margin-right: 16px;
+    color: white;
+    outline: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.file-upload__button:active {
+transition: all 0.25s;
+ background-color: #009800;
+}
+.file-upload__label {
+    max-width: 200px;
+    font-size: 0.95em;
+
+}
